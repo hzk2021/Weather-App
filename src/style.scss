@@ -1,0 +1,82 @@
+$mainColour: #7777bb;
+$bodyColour: #1e212d;
+$textColour: white;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dark-mode {
+    $mainColour: white !important;
+    $bodyColour: white;
+    $textColour: white;
+}
+
+body {
+    background: $mainColour;
+    text-align: center;
+}
+
+header {
+    font-size: 3rem;
+    padding: 1.5rem;
+    background: $bodyColour;
+    color: $textColour;
+}
+
+main {
+    margin-top: 2.4rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    input {
+        background: $bodyColour;
+        color: $textColour;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        text-indent: 5%;
+        padding: 10px;
+    }
+
+    button {
+        background: $bodyColour;
+        color: $textColour;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+}
+
+.report-container{
+    margin-top: 2.4rem;
+
+    .card {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        border-radius: 5px;
+        background: $bodyColour;
+        color: $textColour;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 1rem;
+        gap: 1rem;
+
+        p:first-child{
+            font-size: 2em;
+        }
+
+        p:nth-child(2) {
+            font-size: 1.5em;
+        }
+    }
+}
