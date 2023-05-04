@@ -2,12 +2,30 @@ function createHeader() {
     const header = document.createElement('header');
     header.className = 'header';
 
+    const titleDiv = document.createElement('div');
+    
     const appLogo = document.createElement('i');
     appLogo.className = 'fas fa-cloud-sun';
-    header.appendChild(appLogo);
-
     const appName = 'Weather App';
-    header.append(appName);
+
+    titleDiv.appendChild(appLogo);;
+    titleDiv.append(appName);
+
+    const modeDiv = document.createElement('div');
+    const modeSwitch = document.createElement('input');
+    modeSwitch.type = 'checkbox';
+    modeSwitch.id = 'switch-checkbox';
+    modeSwitch.checked = true;
+
+    const modeToggle = document.createElement('label');
+    modeToggle.setAttribute('for', modeSwitch.id);
+    modeToggle.id = 'switch-toggle';
+
+    modeDiv.appendChild(modeSwitch);
+    modeDiv.appendChild(modeToggle)
+
+    header.appendChild(titleDiv);
+    header.appendChild(modeDiv);
 
     return header;
 }

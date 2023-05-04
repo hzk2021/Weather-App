@@ -1,6 +1,12 @@
-$mainColour: #7777bb;
-$bodyColour: #1e212d;
-$textColour: white;
+$darkMainColour: #7777bb;
+$darkBodyColour: #1e212d;
+$darkTextColour: white;
+$darkPlaceholderColour: white;
+
+$brightMainColour: white;
+$brightBodyColour: #7777bb;
+$brightTextColour: #1e212d;
+$brightPlaceholderColour: black;
 
 * {
     margin: 0;
@@ -8,22 +14,73 @@ $textColour: white;
     box-sizing: border-box;
 }
 
-.dark-mode {
-    $mainColour: white !important;
-    $bodyColour: white;
-    $textColour: white;
+:root {
+    --colour-page-background: #{$darkMainColour};
+    --colour-body: #{$darkBodyColour};
+    --colour-text: #{$darkTextColour};
+    --colour-placeholder: #{$darkPlaceholderColour};
+}
+
+.bright-mode {
+    --colour-page-background: #{$brightMainColour};
+    --colour-body: #{$brightBodyColour};
+    --colour-text: #{$brightTextColour};
+    --colour-placeholder: #{$brightPlaceholderColour};
 }
 
 body {
-    background: $mainColour;
+    background: var(--colour-page-background);
     text-align: center;
 }
 
 header {
     font-size: 3rem;
     padding: 1.5rem;
-    background: $bodyColour;
-    color: $textColour;
+    background: var(--colour-body);
+    color: var(--colour-text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        margin-left: auto;
+    }
+
+    #switch-toggle {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        background-color: lightgrey;
+        border-radius: 20px;
+    }
+
+    #switch-toggle::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: white;
+        top: 1px; // TO GIVE AN EFFECT OF CIRCLE INSIDE SWITCH
+        left: 1px;
+        transition: all 0.3s;
+    }
+
+    #switch-checkbox:checked + #switch-toggle::after {
+        left: 20px;
+    }
+
+    #switch-checkbox:checked + #switch-toggle {
+        background-color: darkgrey;
+    }
+
+
+    #switch-checkbox {
+        display: none;
+    }
+
 }
 
 main {
@@ -36,18 +93,22 @@ main {
     gap: 10px;
 
     input {
-        background: $bodyColour;
-        color: $textColour;
+        background: var(--colour-body);
+        color: var(--colour-text);
         outline: none;
         border: none;
         border-radius: 5px;
         text-indent: 5%;
         padding: 10px;
     }
+    
+    ::placeholder {
+        color: var(--colour-placeholder);
+    }
 
     button {
-        background: $bodyColour;
-        color: $textColour;
+        background: var(--colour-body);
+        color: var(--colour-text);
         border-radius: 5px;
         outline: none;
         border: none;
@@ -62,8 +123,8 @@ main {
     .card {
         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
         border-radius: 5px;
-        background: $bodyColour;
-        color: $textColour;
+        background: var(--colour-body);
+        color: var(--colour-text);
         max-width: 350px;
         display: flex;
         flex-direction: column;
