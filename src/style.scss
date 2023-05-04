@@ -64,12 +64,13 @@ main {
         border-radius: 5px;
         background: $bodyColour;
         color: $textColour;
-        max-width: 300px;
+        max-width: 350px;
         display: flex;
         flex-direction: column;
         margin: auto;
         padding: 1rem;
         gap: 1rem;
+        font-size: 1.2rem;
 
         p:first-child{
             font-size: 2em;

@@ -42,48 +42,27 @@ function createSearchSection() {
     return container;
 }
 
-function createCard(content) {
+function createReportSection(content){
+
+    const reportContainer = document.getElementsByClassName('report-container')[0]
+    if (reportContainer) reportContainer.remove();
+
+    
+    const container = document.createElement('div');
+    container.className = 'report-container';
+
     const card = document.createElement('div');
     card.className = 'card';
 
-    card.innerHTML = (`<p> ${content['Country']} </p>`) + 
+    card.innerHTML = (`<p> ${content['Location']} </p>`) + 
                      (`<p> ${content['ActualTemperature']} °C </p>`) +
                      (`<p> Feels like: ${content['FeelsTemperature']} °C </p>`) +
                      (`<p> Humidity: ${content['Humidity']} % </p>`) +
                      (`<p> Wind: ${content['Wind']} km/h </p>`);
 
-    return card;
-
-}
-
-function createReportSection(content){
-    const container = document.createElement('div');
-    container.className = 'report-container';
-
-    const card = createCard(content);
     container.appendChild(card);
 
     return container;
 }
 
-function createContentArea(weatherData) {
-    const content = document.createElement('main');
-
-    const searchSection = createSearchSection();
-    content.appendChild(searchSection);
-
-
-    // change to weather data
-    const reportSection = createReportSection({
-        'Country': 'Singapore',
-        'ActualTemperature': '29.53',
-        'FeelsTemperature': '35.28',
-        'Humidity': '76',
-        'Wind': '3.6'
-    });
-    content.appendChild(reportSection);
-
-    return content;
-}
-
-export {createHeader, createContentArea};
+export {createHeader, createSearchBox, createSearchButton, createSearchSection ,createReportSection};
