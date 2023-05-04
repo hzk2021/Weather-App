@@ -5,10 +5,16 @@ export default function init() {
     const searchBtn = document.getElementById('search-button');
     const switchToggle = document.getElementById('switch-toggle');
 
+    locationInput.removeEventListener('keyup', searchWeather);
     searchBtn.removeEventListener('click', searchWeather);
     switchToggle.removeEventListener('click', changeTheme);
     
-    searchBtn.addEventListener('click', () => {
+    locationInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter')
+            searchWeather(locationInput.value);
+    })
+    
+    searchBtn.addEventListener('keyup', () => {
         searchWeather(locationInput.value);
     });
 
